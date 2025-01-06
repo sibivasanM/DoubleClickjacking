@@ -1,4 +1,9 @@
-<script>
+<html>
+    <head>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    </head>
+<body>
+    <script>
     function openDoubleWindow(url, top, left, width, height) {
         var evilWindow = window.open(window.location.protocol+"//"+
               window.location.hostname+":"+
@@ -62,4 +67,6 @@
     <form class="form-inline">
         <button onclick="openDoubleWindow(getDynamicUrl(),getUpdown(), getleftRight(), getwidth(), getheight())" class="btn btn-primary">Click Here</button>
     </form>
+
+</body></html>
 
