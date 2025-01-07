@@ -5,6 +5,7 @@
 <body>
     <script>
         function getValuesFromForm(){
+            event.preventDefault();
             const urlInput = document.getElementById("siteUrl").value;
             const upDown = document.getElementById("Updown").value;
             if(urlInput && upDown !==''){
