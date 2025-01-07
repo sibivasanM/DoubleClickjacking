@@ -4,7 +4,7 @@
     </head>
 <body>
 <script>
-    function openDoubleWindow(url,upDown){
+    function openDoubleWindow(url,upDown,left,width,height){
         console.log("hi from opendoublewindow");
         console.log('url opendoublewindow',url);
         console.log('updown opendoublewindow',upDown);
@@ -27,7 +27,7 @@
             </scri`+`pt>
             
             <div id="doubleclick" type="button" class="button" 
-                style="top: ${upDown}px; left: ${upDown}px; width: ${upDown}px; height: ${upDown}px; position: absolute; font-size: 16px; color: white; background-color: #3498db; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); display: flex; justify-content: center; align-items: center; font-weight: bold; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); cursor: pointer; border-radius: 20px; text-align: center; padding: 0 5px; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'; this.style.boxShadow='6px 6px 12px rgba(0, 0, 0, 0.4)'; this.style.transform='scale(1.05)';" 
+                style="top: ${upDown}px; left: ${left}px; width: ${width}px; height: ${height}px; position: absolute; font-size: 16px; color: white; background-color: #3498db; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); display: flex; justify-content: center; align-items: center; font-weight: bold; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); cursor: pointer; border-radius: 20px; text-align: center; padding: 0 5px; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'; this.style.boxShadow='6px 6px 12px rgba(0, 0, 0, 0.4)'; this.style.transform='scale(1.05)';" 
                 onmouseout="this.style.backgroundColor='#3498db'; this.style.boxShadow='5px 5px 10px rgba(0, 0, 0, 0.3)'; this.style.transform='scale(1)';">Double Click Here</div>
 <script>
       document.getElementById('doubleclick').addEventListener('mousedown', function() {
@@ -42,6 +42,7 @@
         event.preventDefault();
         const urlInput = document.getElementById("siteUrl").value;
         const upDown = document.getElementById("Updown").value;
+        const left = document.getElementById("left").value;
         const width = document.getElementById("width").value;
         const height = document.getElementById("height").value;
         if (urlInput && upDown) {
@@ -49,7 +50,7 @@
             console.log('Top (Up/Down):', upDown);
             console.log('width:', width);
             console.log('height:' height);
-            openDoubleWindow(urlInput,upDown,width,height);
+            openDoubleWindow(urlInput,upDown,left,width,height);
         } else {
             console.error('Both URL and Up/Down values are required.');
         }
@@ -70,7 +71,12 @@
         </div>
         <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="width">UWidth</label>
+            <label for="left">left</label>
+            <input type="text" class="form-control" id="left" placeholder="left" />
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="width">Width</label>
             <input type="text" class="form-control" id="width" placeholder="Width" />
         </div>
             <div class="form-row">
