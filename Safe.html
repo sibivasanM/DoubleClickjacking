@@ -4,6 +4,9 @@
     </head>
 <body>
 <script>
+    function openDoubleWindow(url,upDown){
+        console.log("hi from opendoublewindow);
+    }
     function getValuesFromForm(event) {
         event.preventDefault();
         const urlInput = document.getElementById("siteUrl").value;
@@ -11,6 +14,7 @@
         if (urlInput && upDown) {
             console.log('URL:', urlInput);
             console.log('Top (Up/Down):', upDown);
+            openDoubleWindow(urlInput,upDown);
         } else {
             console.error('Both URL and Up/Down values are required.');
         }
