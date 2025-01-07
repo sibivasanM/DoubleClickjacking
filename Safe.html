@@ -8,6 +8,8 @@
         console.log("hi from opendoublewindow");
         console.log('url opendoublewindow',url);
         console.log('updown opendoublewindow',upDown);
+         var evilWindow = window.open(window.location.protocol+"//"+window.location.hostname+":"+window.location.port+"/random", "_blank");
+         console.log('evilWindow', evilWindow);
     }
     function getValuesFromForm(event) {
         event.preventDefault();
