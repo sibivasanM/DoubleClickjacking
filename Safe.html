@@ -3,6 +3,15 @@
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     </head>
 <body>
+    <script>
+        function getValuesFromForm(){
+            const urlInput = document.getElementById("siteUrl").value;
+            const upDown = document.getElementById("Updown").value;
+            if(urlInput && upDown !==''){
+                console.log('urlinput',url);
+                console.log('updown',upDown);
+        }
+    </script>
     <form>
     <h2><b>Double Clickjacking</b></h2>
     <div class="form-row">
@@ -17,6 +26,7 @@
             <input type="text" class="form-control" id="Updown" placeholder="Up/Down" />
         </div>
     </div>
+        <button type="submit" onclick="getValuesFromForm()"></button>
     </form>
 </body>
 </html>
