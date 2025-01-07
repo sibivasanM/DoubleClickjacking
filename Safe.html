@@ -39,23 +39,23 @@
 <script>
     function getDynamicUrl() {
     const urlInput = document.getElementById("siteUrl").value;
-    return urlInput ? urlInput : 'https://defaulturl.com'; // fallback URL if input is empty
+    return urlInput; // fallback URL if input is empty
 }
             function getUpdown() {
-    const urlInput = document.getElementById("Updown").value;
-    return urlInput ? urlInput : 'https://defaulturl.com'; // fallback URL if input is empty
+    const up = document.getElementById("Updown").value;
+    return up ? up : 'https://defaulturl.com'; // fallback URL if input is empty
 }
             function getleftRight() {
-    const urlInput = document.getElementById("leftRight").value;
-    return urlInput ? urlInput : 'https://defaulturl.com'; // fallback URL if input is empty
+    const left = document.getElementById("leftRight").value;
+    return left ? left : 'https://defaulturl.com'; // fallback URL if input is empty
 }
             function getwidth() {
-    const urlInput = document.getElementById("width").value;
-    return urlInput ? urlInput : 'https://defaulturl.com'; // fallback URL if input is empty
+    const width = document.getElementById("width").value;
+    return width ? width : 'https://defaulturl.com'; // fallback URL if input is empty
 }
             function getheight() {
-    const urlInput = document.getElementById("height").value;
-    return urlInput ? urlInput : 'https://defaulturl.com'; // fallback URL if input is empty
+    const height = document.getElementById("height").value;
+    return width ? width : 'https://defaulturl.com'; // fallback URL if input is empty
 }
 </script>
     <!-- Replace value's below with the URL and top, left, width, height of a button you want to doublejack with -->
@@ -64,7 +64,7 @@
     <div class="form-row">
     <div class="form-group col-md-6">
     <label for="siteUrl">Enter the URL</label>
-    <input type="text" class="form-control" id="siteUrl" placeholder="Enter site URL" />
+    <input type="url" class="form-control" id="siteUrl" placeholder="Enter site URL" />
     </div>
     <div class="form-row">
     <div class="form-group col-md-6">
