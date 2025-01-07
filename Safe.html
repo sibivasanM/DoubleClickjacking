@@ -21,9 +21,9 @@
         //plugs the page to be hijacked as opener returnee
         evilWindow.document.write(`
             <script>
-            console.log('Hijacking opener to:', "${url}");
+            console.log('Hijacking opener to:',url);
             setTimeout(function() { 
-                opener.location = "${url}"; 
+                opener.location = ${url}; 
             }, 1000);
 
             </scri`+`pt>
