@@ -45,21 +45,21 @@ function openDoubleWindow(url, top, left, width, height) {
     const urlInput = document.getElementById("siteUrl").value;
     return urlInput; // fallback URL if input is empty
 }
-            function getUpdown() {
+    function getUpdown() {
     const up = document.getElementById("Updown").value;
-    return up ? up : 'https://defaulturl.com'; // fallback URL if input is empty
+    return up ? up : ""; // fallback URL if input is empty
 }
-            function getleftRight() {
+    function getleftRight() {
     const left = document.getElementById("leftRight").value;
-    return left ? left : 'https://defaulturl.com'; // fallback URL if input is empty
+    return left ? left : ""; // fallback URL if input is empty
 }
-            function getwidth() {
+    function getwidth() {
     const width = document.getElementById("width").value;
-    return width ? width : 'https://defaulturl.com'; // fallback URL if input is empty
+    return width ? width : "" // fallback URL if input is empty
 }
-            function getheight() {
+    function getheight() {
     const height = document.getElementById("height").value;
-    return width ? width : 'https://defaulturl.com'; // fallback URL if input is empty
+    return height ? height : "" // fallback URL if input is empty
 }
 </script>
     <!-- Replace value's below with the URL and top, left, width, height of a button you want to doublejack with -->
@@ -68,7 +68,7 @@ function openDoubleWindow(url, top, left, width, height) {
     <div class="form-row">
     <div class="form-group col-md-6">
     <label for="siteUrl">Enter the URL</label>
-    <input type="url" class="form-control" id="siteUrl" placeholder="Enter site URL" />
+    <input type="text" class="form-control" id="siteUrl" placeholder="Enter site URL" />
     </div>
     <div class="form-row">
     <div class="form-group col-md-6">
