@@ -10,6 +10,10 @@ function openDoubleWindow(url, top, left, width, height) {
     console.log('Left:', left);
     console.log('Width:', width);
     console.log('Height:', height);
+     if (!url) {
+        console.error("URL is required for the hijack.");
+        return;
+    }
     var evilWindow = window.open(window.location.protocol+"//"+
   		window.location.hostname+":"+
   		window.location.port+"/random", 
