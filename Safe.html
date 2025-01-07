@@ -3,17 +3,24 @@
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     </head>
 <body>
-    <script>
-        function getValuesFromForm(){
-            event.preventDefault();
-            const urlInput = document.getElementById("siteUrl").value;
-            const upDown = document.getElementById("Updown").value;
-            if(urlInput && upDown !==''){
-                console.log('urlinput',urlInput);
-                console.log('updown',upDown);
-            }
+<script>
+    function openDoubleWindow(url, top) {
+        console.log('url' ,url);
+        console.log('top',top);
+    }
+    function getValuesFromForm(event) {
+        event.preventDefault(); // Prevents default form submission behavior
+        const urlInput = document.getElementById("siteUrl").value;
+        const upDown = document.getElementById("Updown").value;
+        if (urlInput && upDown) {
+            console.log('URL:', urlInput);
+            console.log('Top (Up/Down):', upDown);
+            openDoubleWindow(urlInput, upDown);
+        } else {
+            console.error('Both URL and Up/Down values are required.');
         }
-    </script>
+    }
+</script>
     <form>
     <h2><b>Double Clickjacking</b></h2>
     <div class="form-row">
